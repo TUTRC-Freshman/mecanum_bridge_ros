@@ -21,7 +21,6 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(sensor_msgs REQUIRED)
 
 # Composable Nodeを作成
 add_library(${PROJECT_NAME}_component SHARED src/mecanum_bridge_ros_component.cpp)
@@ -31,7 +30,6 @@ ament_target_dependencies(${PROJECT_NAME}_component
   rclcpp_components
   std_msgs
   geometry_msgs
-  sensor_msgs
 )
 rclcpp_components_register_node(${PROJECT_NAME}_component
   PLUGIN "mecanum_bridge_ros::MecanumBridgeRosComponent"
@@ -45,7 +43,6 @@ ament_export_dependencies(
   rclcpp_components
   std_msgs
   geometry_msgs
-  sensor_msgs
 )
 
 install(
